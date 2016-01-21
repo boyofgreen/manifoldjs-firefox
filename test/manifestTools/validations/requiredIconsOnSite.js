@@ -1,9 +1,13 @@
 'use strict';
 
-var validation = require('../../../../lib/manifestTools/validationRules/firefox/requiredIconsOnSite');
-var validationConstants = require('../../../../lib/manifestTools/validationConstants');
-var should = require('should');
-var http = require('http');
+var http = require('http'),
+    should = require('should');
+
+var lib = require('manifoldjs-lib');
+var validationConstants = lib.constants.validation;
+
+var constants = require('../../../lib/constants'),  
+    validation = require('../../../lib/validationRules/requiredIconsOnSite');
 
 //var manifestWithRequiredIconSizes = [{sizes : '128x128', src: '' }, {sizes : '512x512', src: '' }];
 
@@ -58,7 +62,7 @@ describe('Validation - Firefox', function () {
       validation({ icons: [icon] }, function(err, warning) {
         should.not.exist(err);
         should.exist(warning);
-        warning.should.have.property('platform', validationConstants.platforms.firefox);
+        warning.should.have.property('platform', constants.platform.id);
         warning.should.have.property('level', validationConstants.levels.warning);
         warning.should.have.property('member', validationConstants.manifestMembers.icons);
         warning.should.have.property('code', validationConstants.codes.missingImageOnsite);
@@ -79,7 +83,7 @@ describe('Validation - Firefox', function () {
       validation({ start_url:'http://localhost:8042/',  icons: [icon] }, function(err, warning) {
         should.not.exist(err);
         should.exist(warning);
-        warning.should.have.property('platform', validationConstants.platforms.firefox);
+        warning.should.have.property('platform', constants.platform.id);
         warning.should.have.property('level', validationConstants.levels.warning);
         warning.should.have.property('member', validationConstants.manifestMembers.icons);
         warning.should.have.property('code', validationConstants.codes.missingImageOnsite);

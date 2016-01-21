@@ -1,8 +1,12 @@
 'use strict';
 
-var validation = require('../../../../lib/manifestTools/validationRules/firefox/requiredPlatformsIcons');
-var validationConstants = require('../../../../lib/manifestTools/validationConstants');
 var should = require('should');
+
+var lib = require('manifoldjs-lib');
+var validationConstants = lib.constants.validation;
+
+var constants = require('../../../lib/constants'),  
+    validation = require('../../../lib/validationRules/requiredPlatformsIcons');
 
 var requiredIconSizes = ['16x16', '32x32', '48x48', '64x64', '90x90', '128x128', '256x256'];
 var manifestWithRequiredIconSizes = [{sizes : '16x16'}, {sizes : '32x32'}, {sizes : '48x48'}, {sizes : '64x64'}, {sizes : '90x90'}, {sizes : '128x128'}, {sizes : '256x256'}];
@@ -13,7 +17,7 @@ describe('Validation - Firefox', function () {
       validation({}, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.firefox);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -26,7 +30,7 @@ describe('Validation - Firefox', function () {
       validation({ icons: [] }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.firefox);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -39,7 +43,7 @@ describe('Validation - Firefox', function () {
       validation({ icons: [{sizes : '1x1'}] }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.firefox);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -52,7 +56,7 @@ describe('Validation - Firefox', function () {
       validation({ icons: manifestWithRequiredIconSizes.slice(0,1) }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.firefox);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
