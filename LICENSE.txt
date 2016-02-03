@@ -1,4 +1,4 @@
-ManifoldJS
+manifoldjs-firefox
 
 Copyright (c) Microsoft Corporation
 

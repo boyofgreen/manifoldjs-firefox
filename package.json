@@ -1,7 +1,7 @@
 {
   "name": "manifoldjs-firefox",
-  "version": "0.0.1",
-  "description": "Manifoldjs Firefox OS platform",
+  "version": "0.1.0",
+  "description": "Manifoldjs Firefox OS Platform",
   "repository": {
     "type": "git",
     "url": "https://github.com/manifoldjs/manifoldjs-firefox.git"
@@ -33,8 +33,8 @@
   ],
   "dependencies": {
     "q": "^1.4.1",
-    "manifoldjs-lib": "git://github.com/manifoldjs/manifoldjs-lib.git",
-    "request": "^2.53.0"    
+    "request": "^2.53.0",
+    "manifoldjs-lib": "^0.1.0"
   },
   "devDependencies": {
     "blanket": "1.1.6",
