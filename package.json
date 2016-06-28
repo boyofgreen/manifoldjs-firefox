@@ -34,7 +34,7 @@
   "dependencies": {
     "q": "^1.4.1",
     "request": "^2.53.0",
-    "manifoldjs-lib": "^v1.0.0"
+    "manifoldjs-lib": "^1.0.0"
   },
   "devDependencies": {
     "blanket": "1.1.6",
